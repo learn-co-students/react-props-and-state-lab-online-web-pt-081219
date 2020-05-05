@@ -53,7 +53,10 @@ class App extends React.Component {
               />
             </div>
             <div className="twelve wide column">
-              <PetBrowser pets={this.state.pets} onAdoptPet={this.onAdoptPet}/>
+              <PetBrowser 
+              pets={this.state.pets} 
+              onAdoptPet={this.onAdoptPet}
+              />
             </div>
           </div>
         </div>

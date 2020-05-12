@@ -2,8 +2,6 @@ import React from 'react'
 
 import Filters from './Filters'
 import PetBrowser from './PetBrowser'
-import { getByType } from '../data/pets'
-import { types } from 'babel-core'
 
 class App extends React.Component {
   constructor() {
@@ -20,6 +18,7 @@ class App extends React.Component {
   onChangeType = (type) => {
     this.setState({
       filters: {
+        ...this.state.filters,
         type: type
       }
     })
@@ -41,18 +40,17 @@ class App extends React.Component {
         url = url;
         break;
     }
-    const pets = fetch(url)
-    this.setState({
-      pets: pets
-    })
+    fetch(url)
+    .then(response => response.json())
+    .then(jsonObject => this.setState({pets: jsonObject}));
   }
 
-  onAdoptPet = (id) => {
-    let pets = this.state.pets;
-    pets.forEach(pet => {
-      if(pet.id === id) {
-        pet.isAdopted = true
-      }
+  onAdoptPet = (petId) => {
+    const pets = this.state.pets.map(pet => {
+      return pet.id === petId ? {...pet, isAdopted: true} : pet;
+    });
+    this.setState({
+      pets: pets
     });
   }
 

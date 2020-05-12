@@ -6,10 +6,6 @@ class Filters extends React.Component {
     this.props.onChangeType(event.target.value)
   }
 
-  handleClick = () => {
-    this.props.onFindPetsClick()
-  }
-
   render() {
     return (
       <div className="ui form">
@@ -24,7 +20,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button onClick={this.handleClick} className="ui secondary button">Find pets</button>
+          <button onClick={this.props.onFindPetsClick} className="ui secondary button">Find pets</button>
         </div>
       </div>
     )

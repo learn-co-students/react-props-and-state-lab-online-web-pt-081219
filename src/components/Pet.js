@@ -8,6 +8,7 @@ class Pet extends React.Component {
           <a className="header">
             {/*'♀' OR '♂' */}
             PET NAME
+            {this.props.pet.name}
           </a>
           <div className="meta">
             <span className="date">PET TYPE</span>

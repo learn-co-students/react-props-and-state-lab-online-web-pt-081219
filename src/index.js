@@ -1,6 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './fetch-setup';
+// @ts-check
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+import "./fetch-setup";
+
+ReactDOM.render(<App />, document.getElementById("root"));
